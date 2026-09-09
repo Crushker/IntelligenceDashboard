@@ -1,0 +1,55 @@
+# ─── NBFC Intelligence Platform - Backend Dependencies ──────────────────────
+# Python 3.12+ required
+
+# ─── Web Framework ──────────────────────────────────────────────────────────
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic==2.9.2
+pydantic-settings==2.5.2
+
+# ─── Database ───────────────────────────────────────────────────────────────
+sqlalchemy[asyncio]==2.0.35
+asyncpg==0.29.0
+alembic==1.13.2
+
+# ─── Authentication & Security ──────────────────────────────────────────────
+passlib[argon2]==1.7.4
+python-jose[cryptography]==3.3.0
+python-multipart==0.0.12
+argon2-cffi==23.1.0
+
+# ─── Rate Limiting ──────────────────────────────────────────────────────────
+slowapi==0.1.9
+redis==5.1.1
+
+# ─── HTTP Clients ───────────────────────────────────────────────────────────
+httpx==0.27.2
+aiohttp==3.10.5
+
+# ─── Web Scraping ───────────────────────────────────────────────────────────
+beautifulsoup4==4.12.3
+feedparser==6.0.11
+lxml==5.3.0
+
+# ─── YouTube ────────────────────────────────────────────────────────────────
+youtube-transcript-api==0.6.2
+google-api-python-client==2.147.0
+
+# ─── LLM / AI ───────────────────────────────────────────────────────────────
+openai==1.50.2
+langchain==0.3.1
+langchain-openai==0.2.1
+instructor==1.4.0
+
+# ─── Task Queue ─────────────────────────────────────────────────────────────
+celery[redis]==5.4.0
+
+# ─── Email ──────────────────────────────────────────────────────────────────
+jinja2==3.1.4
+aiosmtplib==3.0.2
+
+# ─── Utilities ──────────────────────────────────────────────────────────────
+python-dotenv==1.0.1
+structlog==24.4.0
+orjson==3.10.7
+email-validator==2.2.0
