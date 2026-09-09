@@ -7,6 +7,7 @@ import { IntelligenceFeed } from './pages/IntelligenceFeed';
 import { VideoHub } from './pages/VideoHub';
 import { Subscription } from './pages/Subscription';
 import { Settings } from './pages/Settings';
+import { Architecture } from './pages/Architecture';
 import { Layout } from './components/Layout';
 
 interface AuthContextType {
@@ -30,7 +31,7 @@ function App() {
   const [user, setUser] = useState<{ name: string; role: string; org: string } | null>(null);
 
   const login = (email: string, _password: string) => {
-    // Demo authentication
+    // Demo authentication - in production, this calls FastAPI /api/v1/auth/login
     if (email) {
       setIsAuthenticated(true);
       setUser({
@@ -62,6 +63,9 @@ function App() {
           } />
           <Route path="/videos" element={
             isAuthenticated ? <Layout><VideoHub /></Layout> : <Navigate to="/login" />
+          } />
+          <Route path="/architecture" element={
+            isAuthenticated ? <Layout><Architecture /></Layout> : <Navigate to="/login" />
           } />
           <Route path="/subscription" element={
             isAuthenticated ? <Layout><Subscription /></Layout> : <Navigate to="/login" />

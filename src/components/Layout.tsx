@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../App';
 import {
   LayoutDashboard, Shield, Video, CreditCard, Settings,
-  LogOut, Bell, Search, Menu, X, ChevronDown
+  LogOut, Bell, Search, Menu, X, ChevronDown, GitBranch
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -15,6 +15,7 @@ const navItems = [
   { path: '/dashboard', label: 'Executive Dashboard', icon: LayoutDashboard },
   { path: '/intelligence', label: 'Intelligence Feed', icon: Shield },
   { path: '/videos', label: 'Video Hub', icon: Video },
+  { path: '/architecture', label: 'Architecture', icon: GitBranch },
   { path: '/subscription', label: 'Subscription', icon: CreditCard },
   { path: '/settings', label: 'Settings', icon: Settings },
 ];
@@ -45,7 +46,7 @@ export function Layout({ children }: LayoutProps) {
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 px-4 py-6 space-y-1">
+          <nav className="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
             {navItems.map((item) => {
               const isActive = location.pathname === item.path;
               const Icon = item.icon;
@@ -76,8 +77,8 @@ export function Layout({ children }: LayoutProps) {
                 <span className="text-xs text-accent-green font-medium">Pipeline Active</span>
               </div>
               <p className="text-[10px] text-navy-400">Last sync: 2 min ago</p>
-              <p className="text-[10px] text-navy-400">12 sources monitored</p>
-              <p className="text-[10px] text-navy-400">3 critical alerts pending</p>
+              <p className="text-[10px] text-navy-400">14 sources monitored</p>
+              <p className="text-[10px] text-navy-400">5 critical alerts pending</p>
             </div>
           </div>
         </div>
@@ -109,7 +110,7 @@ export function Layout({ children }: LayoutProps) {
           <div className="flex items-center gap-4">
             <button className="relative text-navy-300 hover:text-white transition-colors">
               <Bell className="w-5 h-5" />
-              <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-accent-red text-[9px] font-bold text-white flex items-center justify-center">3</span>
+              <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-accent-red text-[9px] font-bold text-white flex items-center justify-center">5</span>
             </button>
 
             <div className="relative">
@@ -132,10 +133,14 @@ export function Layout({ children }: LayoutProps) {
                   <div className="px-4 py-2 border-b border-navy-700/50">
                     <p className="text-sm font-medium text-white">{user?.name}</p>
                     <p className="text-xs text-navy-400">{user?.org}</p>
+                    <p className="text-[10px] text-navy-500 mt-1">Enterprise CIO Access</p>
                   </div>
-                  <button className="w-full flex items-center gap-3 px-4 py-2 text-sm text-navy-300 hover:text-white hover:bg-navy-800/50 transition-colors">
+                  <Link to="/settings" className="w-full flex items-center gap-3 px-4 py-2 text-sm text-navy-300 hover:text-white hover:bg-navy-800/50 transition-colors">
                     <Settings className="w-4 h-4" /> Account Settings
-                  </button>
+                  </Link>
+                  <Link to="/subscription" className="w-full flex items-center gap-3 px-4 py-2 text-sm text-navy-300 hover:text-white hover:bg-navy-800/50 transition-colors">
+                    <CreditCard className="w-4 h-4" /> Subscription
+                  </Link>
                   <button
                     onClick={logout}
                     className="w-full flex items-center gap-3 px-4 py-2 text-sm text-accent-red hover:bg-navy-800/50 transition-colors"

@@ -183,6 +183,32 @@ export const intelligenceFeed: IntelligenceItem[] = [
     severity_or_relevance_score: 9,
     published_at: '2025-12-10T15:00:00Z',
     tags: ['Supply-Chain', 'npm', 'Backdoor', 'Node.js', 'Critical']
+  },
+  {
+    id: 'int-013',
+    category: 'Frontier-Tech',
+    headline: 'Sovereign LLM Deployment: IDRBT Releases Banking-Specific LLM Fine-Tuned on Indian Financial Regulations',
+    source_authority: 'IDRBT',
+    source_url: 'https://idrbt.ac.in/research/sovereign-banking-llm-2026',
+    applicable_nbfc_layers: ['Upper', 'Top'],
+    technical_summary: 'IDRBT releases "BharatFin-LLM" — a 7B parameter language model fine-tuned on RBI circulars, Master Directions, CERT-In advisories, and Indian banking regulations. Deployable on-premises for regulatory compliance analysis, automated circular interpretation, and customer grievance classification. Supports Hindi/English/Tamil code-switching. Achieves 94.2% accuracy on regulatory Q&A benchmark vs 67% for general-purpose LLMs.',
+    cio_actionable_directive: 'Evaluate on-premises deployment of BharatFin-LLM for automated regulatory analysis. Task ML team with fine-tuning on organization-specific compliance documents. Deploy as internal tool for compliance officers. Budget ₹45L for GPU infrastructure (4x A100). Target: Reduce regulatory analysis time by 80%.',
+    severity_or_relevance_score: 7,
+    published_at: '2025-12-05T10:00:00Z',
+    tags: ['LLM', 'Sovereign-AI', 'IDRBT', 'NLP', 'Compliance']
+  },
+  {
+    id: 'int-014',
+    category: 'Regulatory',
+    headline: 'UIDAI Updates: Aadhaar Vault Architecture Mandate – On-Premises HSM Required for All NBFCs Processing >10K e-KYC/month',
+    source_authority: 'UIDAI',
+    source_url: 'https://uidai.gov.in/images/aadhaar-vault-guidelines-2026.pdf',
+    applicable_nbfc_layers: ['Middle', 'Upper', 'Top'],
+    technical_summary: 'UIDAI mandates dedicated Aadhaar Vault with FIPS 140-2 Level 3 certified HSM for NBFCs processing >10,000 e-KYC requests monthly. Vault must implement: (1) AES-256 encryption at rest with HSM-managed keys, (2) Biometric data stored in encrypted format with no plaintext exposure, (3) Access logging with tamper-proof audit trail, (4) Network isolation via dedicated VLAN with whitelisted IPs only. Annual UIDAI audit required.',
+    cio_actionable_directive: 'Commission Aadhaar Vault architecture review. If processing >10K e-KYC/month, engage Thales/Entrust for HSM procurement (lead time: 8 weeks). Design vault network topology with dedicated VLAN. Implement biometric encryption pipeline. Schedule UIDAI audit for Q2 2026.',
+    severity_or_relevance_score: 9,
+    published_at: '2025-12-01T08:00:00Z',
+    tags: ['UIDAI', 'Aadhaar-Vault', 'HSM', 'Encryption', 'Compliance']
   }
 ];
 
@@ -284,7 +310,7 @@ export const videoItems: VideoItem[] = [
   },
   {
     id: 'vid-006',
-    title: 'GCP Architecture: Building HIPAA-and-RBI-Compliant Data Lakes for Financial Analytics',
+    title: 'GCP Architecture: Building RBI-Compliant Data Lakes for Financial Analytics',
     channel: 'Google Cloud Architecture',
     channel_id: 'UCfLwGPYurB77xSv0jT3F4Vw',
     video_id: 'gcp_bfsi_datalake',
@@ -316,3 +342,42 @@ export const alertTickerItems = [
 
 export const nbfcLayers = ['Base', 'Middle', 'Upper', 'Top'] as const;
 export const categories = ['Regulatory', 'Cyber-Threat', 'Infra-Architecture', 'Frontier-Tech', 'Video-Masterclass', 'Networking-Event'] as const;
+
+// Chart data for dashboard
+export const intelligenceTrendData = [
+  { month: 'Aug', regulatory: 8, cyber: 5, infra: 4, frontier: 3 },
+  { month: 'Sep', regulatory: 12, cyber: 7, infra: 6, frontier: 5 },
+  { month: 'Oct', regulatory: 10, cyber: 9, infra: 5, frontier: 4 },
+  { month: 'Nov', regulatory: 15, cyber: 11, infra: 8, frontier: 6 },
+  { month: 'Dec', regulatory: 18, cyber: 14, infra: 7, frontier: 8 },
+  { month: 'Jan', regulatory: 14, cyber: 12, infra: 9, frontier: 7 },
+];
+
+export const severityDistribution = [
+  { name: 'Critical (9-10)', value: 5, color: '#ef4444' },
+  { name: 'High (7-8)', value: 6, color: '#f59e0b' },
+  { name: 'Medium (5-6)', value: 2, color: '#3b82f6' },
+  { name: 'Low (1-4)', value: 1, color: '#10b981' },
+];
+
+export const sourceActivityData = [
+  { source: 'RBI', items: 28, alerts: 4 },
+  { source: 'CERT-In', items: 22, alerts: 8 },
+  { source: 'NPCI', items: 15, alerts: 2 },
+  { source: 'IDRBT', items: 12, alerts: 1 },
+  { source: 'arXiv', items: 18, alerts: 0 },
+  { source: 'MeitY', items: 8, alerts: 3 },
+  { source: 'Sahamati', items: 6, alerts: 1 },
+  { source: 'YouTube', items: 14, alerts: 0 },
+];
+
+export const complianceTimeline = [
+  { id: 1, title: 'CVE-2026-0847 Patch', deadline: '2026-01-20', status: 'overdue' as const, category: 'Cyber-Threat' },
+  { id: 2, title: 'OCEN 4.0 Sandbox Registration', deadline: '2026-02-28', status: 'upcoming' as const, category: 'Infra-Architecture' },
+  { id: 3, title: 'Digital Lending KFS Filing', deadline: '2026-03-31', status: 'upcoming' as const, category: 'Regulatory' },
+  { id: 4, title: 'PQC Cryptographic Inventory', deadline: '2026-04-30', status: 'planned' as const, category: 'Frontier-Tech' },
+  { id: 5, title: 'SOC 2 Type II Certification', deadline: '2026-06-30', status: 'planned' as const, category: 'Regulatory' },
+  { id: 6, title: 'DPDP Consent Manager Deploy', deadline: '2026-06-30', status: 'planned' as const, category: 'Regulatory' },
+  { id: 7, title: 'PQC Hybrid TLS Testing', deadline: '2026-07-31', status: 'planned' as const, category: 'Frontier-Tech' },
+  { id: 8, title: 'UIDAI Aadhaar Vault Audit', deadline: '2026-08-31', status: 'planned' as const, category: 'Regulatory' },
+];
